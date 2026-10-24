@@ -1,0 +1,68 @@
+Windows Registry Editor Version 5.00
+
+; ====================================================================
+; TIER 1 (BASIC) - AIMLOCK SENSI & RAW INPUT FIX
+; Tier 1 Core Tweaks: Neutral Linear Mouse Curves, USB Power Saving Disable,
+; System Responsiveness Balance, and Threshold Wipe.
+; ====================================================================
+
+[HKEY_CURRENT_USER\Control Panel\Mouse]
+"ActiveWindowTracking"=dword:00000000
+"Beep"="No"
+"DoubleClickHeight"="4"
+"DoubleClickSpeed"="550"
+"DoubleClickWidth"="4"
+"ExtendedSounds"="No"
+"MouseHoverHeight"="4"
+"MouseHoverWidth"="4"
+"MouseHoverTime"=dword:0000012C
+"MouseSensitivity"="6"
+"MouseSpeed"="0"
+"MouseThreshold1"="0"
+"MouseThreshold2"="0"
+"MouseTrails"="0"
+"SnapToDefaultButton"="0"
+"SwapMouseButtons"="0"
+"SmoothMouseXCurve"=hex:\
+  00,00,00,00,00,00,00,00,\
+  C0,CC,0C,00,00,00,00,00,\
+  80,99,19,00,00,00,00,00,\
+  40,66,26,00,00,00,00,00,\
+  00,33,33,00,00,00,00,00
+"SmoothMouseYCurve"=hex:\
+  00,00,00,00,00,00,00,00,\
+  00,00,38,00,00,00,00,00,\
+  00,00,70,00,00,00,00,00,\
+  00,00,A8,00,00,00,00,00,\
+  00,00,E0,00,00,00,00,00
+
+[HKEY_USERS\.DEFAULT\Control Panel\Mouse]
+"MouseSensitivity"="6"
+"MouseSpeed"="0"
+"MouseThreshold1"="0"
+"MouseThreshold2"="0"
+"SmoothMouseXCurve"=hex:\
+  00,00,00,00,00,00,00,00,\
+  C0,CC,0C,00,00,00,00,00,\
+  80,99,19,00,00,00,00,00,\
+  40,66,26,00,00,00,00,00,\
+  00,33,33,00,00,00,00,00
+"SmoothMouseYCurve"=hex:\
+  00,00,00,00,00,00,00,00,\
+  00,00,38,00,00,00,00,00,\
+  00,00,70,00,00,00,00,00,\
+  00,00,A8,00,00,00,00,00,\
+  00,00,E0,00,00,00,00,00
+
+; --- TIER 1: USB POWER SUSPEND & BANDWIDTH PROTECT ---
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\USB]
+"DisableSelectiveSuspend"=dword:00000001
+
+; --- TIER 1: BASIC INPUT QUEUE BUFFER ---
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\mouclass\Parameters]
+"MouseDataQueueSize"=dword:00000032
+
+; --- TIER 1: SYSTEM PROFILE BALANCED ---
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile]
+"SystemResponsiveness"=dword:0000000A
+"NetworkThrottlingIndex"=dword:0000000A
